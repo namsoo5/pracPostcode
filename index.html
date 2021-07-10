@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+            <title>index</title>
+            <meta name="viewport" content="width=device-width, user-scalable=no">
+                <style>
+                    html,body{
+                        padding:0 5px 5px;
+                        margin:0;
+                        font-size:18px !important;
+                        background:"#000";
+                        
+                    }
+                    iframe,img{
+                        max-width:100%;height:auto;
+                    }
+                </style>
+            </head>
+    
+    <body>
+        <script src="http://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+        <script>
+            webkit.messageHandlers.hello.postMessage("open");
+            daum.postcode.load(function() {
+                new daum.Postcode({
+                    oncomplete: function(data) {
+                        webkit.messageHandlers.hello.postMessage("Hello WebKit");
+                        
+                        <!--                  console.log(data.userSelectedType)-->
+                        <!--                  data.roadAddress-->
+                        <!--                  data.jibunAddress-->
+                        <!--                  data.bcode-->
+                        <!--                  data.addressType  R: 도로명 J 지번-->
+                    }
+                }).embed();
+            });
+            
+            
+            const daum__layer_2 = document.getElementById('__daum__layer_1');
+            daum__layer_2.style.width = "100%";
+            
+            const daum__layer_1 = document.getElementById('__daum__layer_2');
+            daum__layer_1.style.width = "100%";
+            
+        </script>
+    </body>
+</html>
